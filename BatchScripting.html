@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="StyleSheet1.css" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <a href="index.html">Go Home</a>
+    <br />
+    <h1>What I learned for Batch Scripting</h1>
+    <hr/>
+    <strong>I am a script rookie to start I learned the general template of a script, including:</strong>
+    <p>Using @echo off to reduce clutter</p>
+    <p>Using "color (insert two numbers between 0-9)" to change the scripts color</p>
+    <p>Using pause to force the user to input a character before closing the script</p>
+    <p>How to comment either in the terminal or in the code with "REM" or "echo"</p>
+    <strong>As I wrote my scripts I was able to change all Account Lockout Policies, almost all password policies, and some audit policies</strong>
+    <p> The script I used acted as such, its code is underneath the image.</p>
+    <!--Image below-->
+    <img src="script4.png">
+    <!--Script Used in Image below-->
+    <p>@echo off
+color 84
+echo This is a Script For Cyberpatriot Made by Oliver Farrow for the Space Beans, to review user security policies type "net accounts" in a cmd line.
+echo Password Policies Below
+net accounts /uniquepw:5
+net accounts /maxpwage:30
+net accounts /minpwage:1
+net accounts /minpwlen:8
+echo Account Lockout Policies Below
+net accounts /lockoutduration:15
+net accounts /lockoutthreshold:10
+net accounts /lockoutwindow:15
+echo Audit Policies are below
+auditpol /set /category:"Account Management","Policy Change" /success:enable
+auditpol /set /category:"System","Account Logon","Logon/Logoff" /failure:enable
+pause
+</p>
+</body>
+</html>
